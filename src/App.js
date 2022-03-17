@@ -11,14 +11,12 @@ function App() {
   const [quotes,setArr]=useState([])
 
   useEffect(()=>{
-     axios.get('http://api.currencylayer.com/live?access_key=85bc823a1cc4826703a12368d0ef28f2')
+     axios.get('http://api.exchangeratesapi.io/v1/latest?access_key=4bc4d0a5feeea4299fe3390e300abd77')
      .then(resp=>{
-      setArr(resp.data.quotes);
+      setArr(resp.data.rates);
      })
   },[])
-  function form(number){
-    return number.toFixed(4)
-  }
+  
   function multipl(amount1){
     setAmount2(amount1*quotes[currency2]/quotes[currency1])
     setAmount1(amount1)
